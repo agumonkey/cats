@@ -1,4 +1,4 @@
-# Category Theory
+# Category Theory Archive Repository
 
 This is an achival repository, meant to collect all the available developments
 of Category Theory I can find in Coq, plus a few others.  I use `git-subtree`
