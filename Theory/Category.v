@@ -18,7 +18,21 @@ Reserved Infix "∘" (at level 40, left associativity).
 
   The morphisms identified by `A ~> B` form a hom-set, except that in this
   library it is a hom-setoid, requiring the meaning of (computationally
-  relevant) equivalence between morphisms to be given. *)
+  relevant) equivalence between morphisms to be given. This makes it a
+  quotient category C/R over the equivalence relation R, but since this is
+  almost always needed (since equality is very restrictive in Coq's type
+  theory), we call it a [Category] here, and assume the existence of some
+  other category using only equality, with a functor from that category to
+  this.
+
+  Note that the reason we do not split this into a more fundamental Category,
+  and then define a subclass QuotientCategory from it, is that Coq's type
+  theory does not allow us to define the underlying category of certain
+  quotient categories (for example, that of propositional relations) without
+  invoking the axioms of extensionality and/or proof irrelevance.
+
+  Categories (as distinct from Category/~) are identified by [homset :=
+  Morphism_equality]. *)
 
 Class Category := {
   obj : Type;
@@ -103,6 +117,12 @@ Open Scope category_scope.
 Open Scope object_scope.
 Open Scope homset_scope.
 Open Scope morphism_scope.
+
+Program Definition Morphism_equality {ob : Type} {hom : ob -> ob -> Type}
+        (x y : ob) : Setoid (hom x y) := {|
+  equiv := eq
+|}.
+Arguments Morphism_equality {_ _} _ _ /.
 
 Section Category.
 

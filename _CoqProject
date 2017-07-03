@@ -5,8 +5,12 @@ Lib/Setoid.v
 Lib/Tactics.v
 Lib/Datatypes.v
 Lib/FMapExt.v
+Lib/Nomega.v
+Lib/MapDecide.v
 Theory/Category.v
 Theory/Metacategory.v
+Theory/Metacategory/Graph.v
+Theory/Metacategory/ArrowsOnly.v
 Theory/Morphisms.v
 Theory/Isomorphism.v
 Theory/Unique.v
@@ -138,6 +142,7 @@ Adjunction/Natural/Transformation.v
 Adjunction/Natural/Transformation/Universal.v
 Adjunction/Natural/Transformation/Opposite.v
 Adjunction/Opposite.v
+Adjunction/Diagonal/Product.v
 Monad/Adjunction.v
 Monad/Monoid.v
 Monad/Distributive.v
