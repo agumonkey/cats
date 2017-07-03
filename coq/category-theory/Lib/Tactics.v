@@ -17,9 +17,15 @@ Ltac simplify :=
        let H' := fresh "H" in destruct H as [H H']
      | [ |- _ ∧ _ ] => split
 
+     | [ H : _ /\ _ |- _ ] =>
+       let H' := fresh "H" in destruct H as [H H']
+     | [ |- _ /\ _ ] => split
+
      | [ H : _ ↔ _ |- _ ] =>
        let H' := fresh "H" in destruct H as [H H']
      | [ |- _ ↔ _ ] => split
+
+     | [ H : (_, _) = (_, _) |- _ ] => inversion_clear H
 
      | [ H : _ * _ |- _ ] =>
        let x := fresh "x" in
