@@ -1,3 +1,6 @@
 [submodule "coq/HoTT"]
 	path = coq/HoTT
 	url = https://github.com/JasonGross/coq-scripts.git
+[submodule "coq/UniMath"]
+	path = coq/UniMath
+	url = https://github.com/JasonGross/coq-tools
